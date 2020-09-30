@@ -28,7 +28,8 @@ router.post('/', checkPassword, async (req,res)=>{
         title: req.body.title,
         author: req.body.author,
         body: req.body.body,
-        date: Date.now(),
+        image: req.body.image,
+        date: Date.now()
     })
 
     try{
@@ -52,6 +53,9 @@ router.patch('/:id',checkPassword, getPost, async (req,res)=>{
     }
     if(req.body.body !== null){
         res.post.body = req.body.body;
+    }
+    if(req.body.image !== null){
+        res.post.image = req.body.image;
     }
 
     try{
